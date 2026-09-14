@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jerry (Chuanfang) Wang — UC Berkeley Neuroscience &amp; EECS student">
+    <title>Jerry (Chuanfang) Wang</title>
+    <style>
+        @font-face {
+            font-family: 'ZQKNNY';
+            src: url('ZQKNNY-Medium-2.woff2') format('woff2');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+    </style>
+    <!-- 关键资源预加载 -->
+    <link rel="preload" href="ZQKNNY-Medium-2.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="APP/index.html" as="fetch" crossorigin>
+    <link rel="stylesheet" href="style/word.css">
+    <link rel="stylesheet" href="style/new.css">
+    <link rel="stylesheet" href="style/lan.css">
+    <link rel="stylesheet" href="style/icon.css">
+    <link rel="stylesheet" href="style/aoo.css">
+    <style>
+        /* 内容加载前隐藏，防止默认内容闪烁 */
+        .main-content { opacity: 0; transition: opacity .3s ease; }
+        .main-content.loaded { opacity: 1; }
+        /* 滚动渐入动画 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .5s ease, transform .5s ease;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .main-content { opacity: 1; }
+        .avatar-placeholder { font-size: 42px; font-weight: 600; letter-spacing: 1px; }
+        .edu-head, .exp-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
+        .edu-school, .exp-title { font-size: 16px; font-weight: 600; color: #fff; }
+        .edu-date, .exp-date { font-size: 13px; color: var(--text-muted); font-style: italic; }
+        .edu-degree { font-size: 14px; color: var(--text-muted); font-style: italic; margin-bottom: 12px; }
+        .course-list, .exp-bullets { list-style: none; padding: 0; margin: 0; }
+        .course-list li { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px; }
+        .course-list b, .skill-group-name { color: #fff; font-weight: 600; }
+        .skill-group { margin-bottom: 14px; }
+        .skill-group-name { display: block; font-size: 14px; margin-bottom: 8px; }
+        .exp-item { margin-bottom: 22px; }
+        .exp-item:last-child { margin-bottom: 0; }
+        .exp-bullets li { position: relative; padding-left: 16px; font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-top: 6px; }
+        .exp-bullets li::before { content: ""; position: absolute; left: 2px; top: .7em; width: 6px; height: 6px; border-radius: 50%; background: linear-gradient(135deg,#7dd3fc,#c084fc); }
+        .exp-bullets b { color: #fff; font-weight: 600; }
+        .contact-item a { color: inherit; text-decoration: none; overflow-wrap: anywhere; }
+        .contact-item a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="bg">
+        <div class="pattern-bg">
+            <svg class="cube-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="cube" x="0" y="0" width="60" height="52" patternUnits="userSpaceOnUse">
+                        <path d="M30 0 L60 15 L60 41 L30 52 L0 41 L0 15 Z" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+                        <path d="M30 26 L60 15 M30 26 L0 15 M30 26 L30 52" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#cube)"/>
+            </svg>
+        </div>
+    </div>
+    <div class="bg-blur"></div>
+    <div class="container">
+        <!-- 左侧栏 -->
+        <aside class="sidebar">
+            <!-- 头像 -->
+            <div class="avatar-card">
+                <div class="avatar">
+                    <div class="avatar-placeholder">JW</div>
+                </div>
+            </div>
+
+            <!-- 社交媒体滚动 -->
+            <div class="content" id="appMarquee"></div>
+
+            <!-- 联系方式图标 -->
+            <div class="glass-radio-group">
+                <input type="radio" name="icon" id="glass-mail" checked>
+                <label for="glass-mail" aria-label="Email">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                </label>
+                <input type="radio" name="icon" id="glass-chat">
+                <label for="glass-chat" aria-label="Phone">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>
+                </label>
+                <input type="radio" name="icon" id="glass-link">
+                <label for="glass-link" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </label>
+                <input type="radio" name="icon" id="glass-phone">
+                <label for="glass-phone" aria-label="Location">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                </label>
+                <div class="glass-glider"></div>
+            </div>
+
+            <!-- 导航列表 -->
+            <div class="radio-container" style="--total-radio: 5;">
+                <input type="radio" name="nav" id="nav-about" checked>
+                <label for="nav-about">Education</label>
+                <input type="radio" name="nav" id="nav-skills">
+                <label for="nav-skills">Skills</label>
+                <input type="radio" name="nav" id="nav-projects">
+                <label for="nav-projects">Projects</label>
+                <input type="radio" name="nav" id="nav-research">
+                <label for="nav-research">Research</label>
+                <input type="radio" name="nav" id="nav-contact">
+                <label for="nav-contact">Contact</label>
+                <div class="glider-container">
+                    <div class="glider"></div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 右侧主内容区 -->
+        <main class="main-content">
+            <!-- 移动端头像（仅小屏显示） -->
+            <div class="mobile-avatar-card" id="mobileAvatarCard">
+                <div class="mobile-avatar">
+                    <div class="avatar-placeholder">JW</div>
+                </div>
+            </div>
+
+            <!-- 标题 -->
+            <div class="title-card fade-in">
+                <h1 class="title-wrap">
+                    <span class="title-prefix">Hi, I'm </span><span class="title">Jerry Wang</span>
+                </h1>
+            </div>
+
+            <!-- 副标题 -->
+            <div class="subtitle-card fade-in">
+                <h2 class="subtitle-wrap">
+                    <span class="subtitle-prefix">Neuroscience &amp; EECS @ UC Berkeley · </span><span class="subtitle-name">Chuanfang Wang</span>
+                </h2>
+            </div>
+
+            <!-- 像素文字 -->
+            <div class="pixel-banner fade-in">
+                <div class="pixel-grid" id="pixelGrid"></div>
+            </div>
+
+            <!-- Education -->
+            <div class="intro-card fade-in" id="about">
+                <h3 class="section-title">Education</h3>
+                <div class="edu-head">
+                    <span class="edu-school">University of California, Berkeley — Berkeley, CA</span>
+                    <span class="edu-date">Expected: Spring 2028</span>
+                </div>
+                <p class="edu-degree">Bachelor of Arts in Neuroscience | Minor in Electrical Engineering and Computer Science (EECS)</p>
+                <ul class="course-list">
+                    <li><b>Computing &amp; Data:</b> Structure &amp; Interpretation of Computer Programs (CS 61A); Data Structures &amp; Programming Methodology (CS 61BL); Principles &amp; Techniques of Data Science (DATA C100); Foundations of Data Science (DATA C8)</li>
+                    <li><b>Signals &amp; Engineering:</b> Foundations of Signals, Dynamical Systems, and Information Processing (EECS 16A — LTI Systems, Fourier Analysis, Convolution, PCA); Introduction to Circuits &amp; Devices (EECS 16B / ELENG 64)</li>
+                    <li><b>Mathematics &amp; Physics:</b> Multivariable Calculus (Math 53); Linear Algebra &amp; Differential Equations (Math 54); Calculus (Math 1B); Physics for Scientists &amp; Engineers (Physics 7A/7B — Mechanics, E&amp;M, Wave Motion and Heat)</li>
+                    <li><b>Bioengineering &amp; Neuroscience:</b> Biomedical Physiology for Engineers (BIOENG 110); Introduction to Biomedicine for Engineers (BIOENG 10); Cellular &amp; Molecular Neurobiology (NEU 100A); Directed Group Study — Neurotechnology DeCal (NEU 198, EEG/MRI fundamentals)</li>
+                    <li><b>GIS &amp; Geography:</b> Cartographic Representation (GEOG N183); Globalization (GEOG N20); Food and the Environment (GEOG N130)</li>
+                    <li><b>Writing &amp; Other:</b> Accelerated Reading and Composition (COLWRIT R1A); Reading and Composition (ITALIAN R5B); Sense and Sensibility and Science (LS 22); Introduction to Ethnic Studies (ETHSTD 11AC); Berkeley Connect (PHYSICS 98BC)</li>
+                    <li><b>In Progress (Fall 2026):</b> Self studying PyTorch and PCB; Introduction to Circuits &amp; Devices (EECS 16B / ELENG 64); Cellular &amp; Molecular Neurobiology (NEU 100A); Introduction to Culture and Natural Resource Management (ESPM 50AC)</li>
+                </ul>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="skills-card fade-in" id="skills">
+                <h3 class="section-title">Technical Skills</h3>
+                <div class="skill-group">
+                    <span class="skill-group-name">Programming Languages</span>
+                    <div class="skills-grid"><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">SQL</span><span class="skill-tag">C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">CSS</span></div>
+                </div>
+                <div class="skill-group">
+                    <span class="skill-group-name">Frameworks &amp; Libraries</span>
+                    <div class="skills-grid"><span class="skill-tag">TensorFlow/Keras</span><span class="skill-tag">MediaPipe</span><span class="skill-tag">OpenCV</span><span class="skill-tag">Scikit-Learn</span><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">FastAPI</span><span class="skill-tag">Mapbox</span><span class="skill-tag">Open-Meteo</span><span class="skill-tag">GeoJSON</span></div>
+                </div>
+                <div class="skill-group">
+                    <span class="skill-group-name">Developer Tools</span>
+                    <div class="skills-grid"><span class="skill-tag">Git/GitHub</span><span class="skill-tag">Arduino</span><span class="skill-tag">ITK-SNAP</span><span class="skill-tag">SolidWorks</span><span class="skill-tag">Blender</span><span class="skill-tag">ESRI ArcGIS</span></div>
+                </div>
+                <div class="skill-group">
+                    <span class="skill-group-name">Design &amp; Media</span>
+                    <div class="skills-grid"><span class="skill-tag">Adobe Illustrator</span><span class="skill-tag">Photoshop</span><span class="skill-tag">Audition</span><span class="skill-tag">Flash</span><span class="skill-tag">Microsoft Office</span></div>
+                </div>
+                <div class="skill-group">
+                    <span class="skill-group-name">Laboratory &amp; Fabrication</span>
+                    <div class="skills-grid"><span class="skill-tag">Soldering</span><span class="skill-tag">Mechanical Prototyping (drills/hand tools)</span><span class="skill-tag">Gel Electrophoresis</span><span class="skill-tag">PCR</span><span class="skill-tag">DNA Extraction</span></div>
+                </div>
+            </div>
+
+            <!-- Projects -->
+            <div class="projects-card fade-in" id="projects">
+                <h3 class="section-title">Projects</h3>
+                <div class="exp-item">
+                    <div class="exp-head"><span class="exp-title">Real-Time Transition-Aware ASL Recognition Platform — CalHacks 12.0</span><span class="exp-date">Oct 2025</span></div>
+                    <ul class="exp-bullets">
+                        <li>Co-developed a full-stack, low-latency sign language translation platform using <b>TensorFlow/Keras</b> and <b>FastAPI WebSockets</b> to asynchronously ingest client video streams and return real-time text predictions.</li>
+                        <li>Implemented a <b>two-pass computer vision pipeline</b> in MediaPipe: low-complexity full-frame localization extracts a padded hand bounding box, which is aspect-ratio-preserved and rescaled to a 640×640 canvas for high-complexity landmark refinement.</li>
+                        <li>Built a <b>CNN classifier</b> on 21×3 hand-landmark tensors (three Conv2D blocks with batch normalization, global average pooling, dense layers with dropout), trained with EarlyStopping, ModelCheckpoint, and ReduceLROnPlateau callbacks.</li>
+                        <li>Co-designed with teammates a <b>velocity-adaptive confidence threshold</b> (C = base + k·v²) to suppress transient-frame false positives during gesture transitions; implemented and tuned the model within the detection pipeline, with majority-vote temporal smoothing to reduce prediction jitter.</li>
+                        <li>Developed on-the-fly <b>data augmentation</b> (Gaussian noise, 2D rotation about the wrist, random scaling) supporting custom gesture registration and incremental background retraining via REST endpoints.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-head"><span class="exp-title">FTC Robotics Challenge (Team 6626 / 19913) — Club President &amp; Lead Builder</span><span class="exp-date">2021 – 2025</span></div>
+                    <ul class="exp-bullets">
+                        <li>Led a competitive robotics chapter, coordinating system timelines, technical milestones, and material logistics for multi-stage autonomous and teleoperated robots.</li>
+                        <li>Engineered custom brackets and structural linkages in SolidWorks CAD, carrying designs from digital prototype to fabricated deployment.</li>
+                        <li>Programmed Arduino-compatible microcontrollers and sensor arrays; executed logic board soldering for robot’s servo and motor systems.</li>
+                    </ul>
+                </div>
+                <div class="exp-item">
+                    <div class="exp-head"><span class="exp-title">Reexamining Our Past — California State Parks Initiative</span><span class="exp-date">Jun 2026</span></div>
+                    <ul class="exp-bullets">
+                        <li>Conducted on-site research at Auburn State Recreation Area examining how colonial place names became institutionalized in California’s park system, and how the Colfax-Todds Valley Consolidated Tribes of the Maidu &amp; Miwok are shaping renaming and reinterpretation efforts.</li>
+                        <li>Developed a collaborative digital-humanities cartographic story map using ESRI, Mapbox, and GeoJSON for the initiative’s public-facing platform.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Research -->
+            <div class="projects-card fade-in" id="research">
+                <h3 class="section-title">Research Experience</h3>
+                <div class="exp-item">
+                    <div class="exp-head"><span class="exp-title">Research Assistant — Shandong Provincial Academy of Agricultural Sciences</span><span class="exp-date">2023</span></div>
+                    <ul class="exp-bullets">
+                        <li>Synthesized research data and performed literature analysis for the published study “The Regulatory Role of Brassinosteroids in Plant Growth and Development.”</li>
+                        <li>Executed standard wet-lab workflows including gel electrophoresis, PCR, and automated genomic extraction for isolating and sequencing target genetic variants.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="comms-card fade-in" id="contact">
+                <div class="comms-header">
+                    <h3 class="section-title comms-title">Contact</h3>
+                    <p class="comms-subtitle">Feel free to reach out — or write me a message below.</p>
+                </div>
+                <div class="comms-grid">
+                    <section class="comms-col comms-contact" aria-label="Contact info">
+                        <h4 class="comms-col-title">Contact Info</h4>
+                        <div class="contact-info">
+                            <div class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><a href="mailto:cf.wang@berkeley.edu">cf.wang@berkeley.edu</a></div>
+                            <div class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><a href="tel:+15109184773">510-918-4773</a></div>
+                            <div class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><a href="https://github.com/cfwang-cmyk/" target="_blank" rel="noopener noreferrer">github.com/cfwang-cmyk</a></div>
+                            <div class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Berkeley, CA</div>
+                        </div>
+                    </section>
+                    <div class="comms-divider" aria-hidden="true"></div>
+                    <section class="comms-col comms-email" aria-label="Send email">
+                        <div class="email-header">
+                            <div class="email-icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="3" ry="3"/><polyline points="3 6 12 13 21 6" /></svg></div>
+                            <div class="email-header-text">
+                                <h4 class="comms-col-title email-title">Send a Message</h4>
+                                <p class="email-subtitle">Opens your email app with the message pre-filled.</p>
+                            </div>
+                        </div>
+                        <form class="email-form" id="emailReplyForm">
+                            <div class="email-row email-row-inline">
+                                <div class="email-field">
+                                    <label class="email-label" for="email-name">Name</label>
+                                    <input class="email-input" type="text" id="email-name" name="name" placeholder="Your name">
+                                </div>
+                                <div class="email-field">
+                                    <label class="email-label" for="email-from">Email</label>
+                                    <input class="email-input" type="email" id="email-from" name="from" placeholder="you@example.com">
+                                </div>
+                            </div>
+                            <div class="email-row">
+                                <label class="email-label" for="email-message">Message</label>
+                                <textarea class="email-textarea" id="email-message" name="message" rows="4" placeholder="What would you like to talk about?"></textarea>
+                            </div>
+                            <div class="email-actions">
+                                <button class="email-submit" type="submit">Send Email</button>
+                                <p class="email-hint">Uses your default mail client.</p>
+                            </div>
+                        </form>
+                    </section>
+                </div>
+            </div>
+        </main>
+    </div>
+<script>
+// 并行加载社交媒体模块（不阻塞主内容）
+var _marqueePromise = fetch('APP/index.html').then(function(r) { return r.text(); }).catch(function() { return ''; });
+_marqueePromise.then(function(html) {
+    if (!html) return;
+    var container = document.getElementById('appMarquee');
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(html, 'text/html');
+    doc.querySelectorAll('script').forEach(function(s) { s.remove(); });
+    doc.querySelectorAll('*').forEach(function(el) {
+        [...el.attributes].forEach(function(attr) {
+            if (attr.name.toLowerCase().startsWith('on')) el.removeAttribute(attr.name);
+        });
+    });
+    container.innerHTML = doc.body.innerHTML;
+});
+</script>
+<script>
+// 用于清理上一次渲染的动画和观察器
+var _pixelAnimationId = null;
+var _pixelObserver = null;
+
+function renderPixelBanner(text) {
+    // 清理上一次的动画和观察器
+    if (_pixelAnimationId) {
+        cancelAnimationFrame(_pixelAnimationId);
+        _pixelAnimationId = null;
+    }
+    if (_pixelObserver) {
+        _pixelObserver.disconnect();
+        _pixelObserver = null;
+    }
+
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const grid = document.getElementById('pixelGrid');
+
+    // 根据容器宽度自适应
+    const containerWidth = grid.parentElement.clientWidth || 420;
+    const baseGap = 1;
+    var cols, rows, cellSize;
+
+    if (containerWidth < 500) {
+        // 移动端：减少列数、适当增大格子，让文字更清晰
+        cellSize = 4;
+        cols = Math.floor((containerWidth + baseGap) / (cellSize + baseGap));
+        cols = Math.max(35, Math.min(cols, 65));
+        rows = 14;
+    } else {
+        // 桌面端：保持原有 70 列策略
+        var baseCols = 70;
+        cellSize = Math.floor((containerWidth + baseGap) / baseCols) - baseGap;
+        cellSize = Math.max(3, Math.min(cellSize, 6));
+        cols = baseCols;
+        rows = 16;
+    }
+
+    // 最终校验：确保总宽度不超过容器
+    var gridTotalW = cols * cellSize + (cols - 1) * baseGap;
+    while (gridTotalW > containerWidth && cols > 35) {
+        cols--;
+        gridTotalW = cols * cellSize + (cols - 1) * baseGap;
+    }
+
+    // 小格子时减少行数保持比例
+    if (cellSize <= 3) rows = 12;
+    else if (cellSize <= 4) rows = Math.min(rows, 14);
+
+    // 用离屏 Canvas 生成文字点阵
+    const textCanvas = document.createElement('canvas');
+    textCanvas.width = cols;
+    textCanvas.height = rows;
+    const tctx = textCanvas.getContext('2d');
+    tctx.fillStyle = '#000';
+    tctx.fillRect(0, 0, cols, rows);
+    tctx.fillStyle = '#fff';
+    var fontSize = rows <= 12 ? 11 : (rows <= 14 ? 12 : 14);
+    var fontWeight = containerWidth < 500 ? '100' : '100';
+    tctx.font = 'italic ' + fontWeight + ' ' + fontSize + 'px "Microsoft YaHei", "PingFang SC", sans-serif';
+    tctx.textAlign = 'center';
+    tctx.textBaseline = 'middle';
+    tctx.letterSpacing = '8px';
+    const spacing = -5;
+    const totalWidth = tctx.measureText(text).width + spacing * (text.length - 1);
+    let x = (cols - totalWidth) / 2;
+    for (const ch of text) {
+        const w = tctx.measureText(ch).width;
+        tctx.fillText(ch, x + w / 2 + 3, rows / 2);
+        x += w + spacing;
+    }
+    var imageData = tctx.getImageData(0, 0, cols, rows);
+
+    // 检测文字实际占用的行范围，垂直居中并保证上下至少 2 行空白
+    var topRow = rows, bottomRow = 0;
+    for (var sr = 0; sr < rows; sr++) {
+        for (var sc = 0; sc < cols; sc++) {
+            if (imageData.data[(sr * cols + sc) * 4] > 80) {
+                if (sr < topRow) topRow = sr;
+                if (sr > bottomRow) bottomRow = sr;
+            }
+        }
+    }
+    if (topRow <= bottomRow) {
+        var textHeight = bottomRow - topRow + 1;
+        var idealTop = Math.floor((rows - textHeight) / 2);
+        idealTop = Math.max(1, Math.min(idealTop, rows - textHeight - 1));
+        var shift = idealTop - topRow;
+        if (shift !== 0) {
+            var oldData = new Uint8ClampedArray(imageData.data);
+            imageData.data.fill(0);
+            for (var sr2 = 0; sr2 < rows; sr2++) {
+                var dstRow = sr2 + shift;
+                if (dstRow < 0 || dstRow >= rows) continue;
+                for (var sc2 = 0; sc2 < cols; sc2++) {
+                    var srcIdx = (sr2 * cols + sc2) * 4;
+                    var dstIdx = (dstRow * cols + sc2) * 4;
+                    imageData.data[dstIdx]     = oldData[srcIdx];
+                    imageData.data[dstIdx + 1] = oldData[srcIdx + 1];
+                    imageData.data[dstIdx + 2] = oldData[srcIdx + 2];
+                    imageData.data[dstIdx + 3] = oldData[srcIdx + 3];
+                }
+            }
+        }
+    }
+
+    // 用 DOM 元素渲染像素网格
+    grid.innerHTML = '';
+    grid.style.display = 'grid';
+    grid.style.gridTemplateColumns = 'repeat(' + cols + ', ' + cellSize + 'px)';
+    grid.style.gap = baseGap + 'px';
+
+    var activePixels = [];
+    for (var r = 0; r < rows; r++) {
+        for (var c = 0; c < cols; c++) {
+            var idx = (r * cols + c) * 4;
+            var el = document.createElement('div');
+            el.style.width = cellSize + 'px';
+            el.style.height = cellSize + 'px';
+            el.style.borderRadius = '1px';
+            if (imageData.data[idx] > 80) {
+                el.className = 'pixel-active';
+                activePixels.push({ el: el, c: c });
+            } else {
+                el.style.background = 'rgba(255,255,255,0.1)';
+            }
+            grid.appendChild(el);
+        }
+    }
+
+    if (prefersReducedMotion) {
+        for (var i = 0; i < activePixels.length; i++) {
+            activePixels[i].el.style.background = 'hsl(200,80%,60%)';
+        }
+        return;
+    }
+
+    // 彩虹流动动画
+    var offset = 0;
+    function animate() {
+        for (var i = 0; i < activePixels.length; i++) {
+            var p = activePixels[i];
+            var hue = ((p.c / cols) * 300 + offset) % 360;
+            if (hue < 0) hue += 360;
+            p.el.style.background = 'hsl(' + hue + ',80%,60%)';
+        }
+        offset -= 0.4;
+        _pixelAnimationId = requestAnimationFrame(animate);
+    }
+
+    _pixelObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                if (!_pixelAnimationId) animate();
+            } else {
+                if (_pixelAnimationId) {
+                    cancelAnimationFrame(_pixelAnimationId);
+                    _pixelAnimationId = null;
+                }
+            }
+        });
+    }, { threshold: 0.1 });
+
+    _pixelObserver.observe(grid.parentElement);
+}
+
+// 默认渲染
+renderPixelBanner('JERRY');
+
+// 窗口大小变化时重新渲染像素横幅
+var _pixelResizeTimer;
+var _lastPixelText = 'JERRY';
+window.addEventListener('resize', function() {
+    clearTimeout(_pixelResizeTimer);
+    _pixelResizeTimer = setTimeout(function() {
+        renderPixelBanner(_lastPixelText);
+    }, 200);
+});
+</script>
+<script>
+(function () {
+    // Contact form — compose via mailto (static hosting, no backend)
+    var form = document.getElementById('emailReplyForm');
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var name = form.name.value.trim(), from = form.from.value.trim(), msg = form.message.value.trim();
+        if (!name || !msg) { alert('Please fill in your name and message.'); return; }
+        var subject = 'Hello from ' + name;
+        var bodyText = msg + '\n\n— ' + name + (from ? ' (' + from + ')' : '');
+        window.location.href = 'mailto:cf.wang@berkeley.edu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyText);
+    });
+
+    // Sidebar nav — smooth scroll to sections
+    var navMap = { 'nav-about': 'about', 'nav-skills': 'skills', 'nav-projects': 'projects', 'nav-research': 'research', 'nav-contact': 'contact' };
+    document.querySelectorAll('.radio-container input[name="nav"]').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+            var el = document.getElementById(navMap[this.id]);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Contact icons
+    document.querySelectorAll('.glass-radio-group input').forEach(function (radio) {
+        radio.addEventListener('change', function () {
+            var el = document.getElementById('contact');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+})();
+</script>
+<script>
+// 滚动渐入动画
+(function() {
+    var items = document.querySelectorAll('.fade-in');
+    if (!items.length) return;
+    // 尊重减少动效偏好
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        items.forEach(function(el) { el.classList.add('visible'); });
+        return;
+    }
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.08 });
+    // 交错延迟
+    items.forEach(function(el, i) {
+        el.style.transitionDelay = (i * 0.07) + 's';
+        observer.observe(el);
+    });
+})();
+</script>
+</body>
+</html>
