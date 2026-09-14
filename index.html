@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jerry (Chuanfang) Wang — UC Berkeley Neuroscience &amp; EECS student">
-    <title>Jerry (Chuanfang) Wang</title>
+    <meta name="description" content="Jerry Wang — UC Berkeley Neuroscience &amp; EECS student">
+    <title>Jerry Wang</title>
     <style>
         @font-face {
             font-family: 'ZQKNNY';
@@ -37,7 +37,7 @@
             transform: translateY(0);
         }
         .main-content { opacity: 1; }
-        .avatar-placeholder { font-size: 42px; font-weight: 600; letter-spacing: 1px; }
+        .avatar-placeholder { font-weight: 600; letter-spacing: 1px; }
         .edu-head, .exp-head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 4px 16px; align-items: baseline; }
         .edu-school, .exp-title { font-size: 16px; font-weight: 600; color: #fff; }
         .edu-date, .exp-date { font-size: 13px; color: var(--text-muted); font-style: italic; }
@@ -54,6 +54,9 @@
         .exp-bullets b { color: #fff; font-weight: 600; }
         .contact-item a { color: inherit; text-decoration: none; overflow-wrap: anywhere; }
         .contact-item a:hover { text-decoration: underline; }
+        .project-cover { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; margin-bottom: 14px; display: block; position: relative; z-index: 1; }
+        .projects-grid.project-cards { margin-bottom: 28px; }
+        .avatar-card .avatar-placeholder { font-size: 42px; }
     </style>
 </head>
 <body>
@@ -142,7 +145,7 @@
             <!-- 副标题 -->
             <div class="subtitle-card fade-in">
                 <h2 class="subtitle-wrap">
-                    <span class="subtitle-prefix">Neuroscience &amp; EECS @ UC Berkeley · </span><span class="subtitle-name">Chuanfang Wang</span>
+                    <span class="subtitle-prefix">Neuroscience &amp; EECS @ UC Berkeley</span><span class="subtitle-name"></span>
                 </h2>
             </div>
 
@@ -198,6 +201,32 @@
             <!-- Projects -->
             <div class="projects-card fade-in" id="projects">
                 <h3 class="section-title">Projects</h3>
+                <div class="projects-grid project-cards">
+                    <a class="project-item project-link" href="#" data-link-key="asl" target="_blank" rel="noopener noreferrer">
+                        <img class="project-cover" data-img="images/projects/asl" alt="" hidden>
+                        <div class="project-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+                        <div class="project-title">ASL Recognition</div>
+                        <div class="project-desc">Real-time sign language translation · CalHacks 12.0</div>
+                    </a>
+                    <a class="project-item project-link" href="#" data-link-key="ftc" target="_blank" rel="noopener noreferrer">
+                        <img class="project-cover" data-img="images/projects/ftc" alt="" hidden>
+                        <div class="project-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg></div>
+                        <div class="project-title">FTC Robotics</div>
+                        <div class="project-desc">Club President &amp; Lead Builder · Team 6626 / 19913</div>
+                    </a>
+                    <a class="project-item project-link" href="#" data-link-key="parks" target="_blank" rel="noopener noreferrer">
+                        <img class="project-cover" data-img="images/projects/parks" alt="" hidden>
+                        <div class="project-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                        <div class="project-title">Reexamining Our Past</div>
+                        <div class="project-desc">Cartographic story map · CA State Parks</div>
+                    </a>
+                    <a class="project-item project-link" href="#" data-link-key="placeholder" target="_blank" rel="noopener noreferrer">
+                        <img class="project-cover" data-img="images/projects/placeholder" alt="" hidden>
+                        <div class="project-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3z"/></svg></div>
+                        <div class="project-title">Coming Soon</div>
+                        <div class="project-desc">Your next project goes here</div>
+                    </a>
+                </div>
                 <div class="exp-item">
                     <div class="exp-head"><span class="exp-title">Real-Time Transition-Aware ASL Recognition Platform — CalHacks 12.0</span><span class="exp-date">Oct 2025</span></div>
                     <ul class="exp-bullets">
@@ -251,6 +280,7 @@
                             <div class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg><a href="tel:+15109184773">510-918-4773</a></div>
                             <div class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg><a href="https://github.com/cfwang-cmyk/" target="_blank" rel="noopener noreferrer">github.com/cfwang-cmyk</a></div>
                             <div class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>Berkeley, CA</div>
+                            <div class="contact-item"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg><span data-field="wechat">WeChat: your_wechat_id</span></div>
                         </div>
                     </section>
                     <div class="comms-divider" aria-hidden="true"></div>
@@ -277,9 +307,25 @@
                                 <label class="email-label" for="email-message">Message</label>
                                 <textarea class="email-textarea" id="email-message" name="message" rows="4" placeholder="What would you like to talk about?"></textarea>
                             </div>
+                            <div class="email-row">
+                                <label class="email-label">Attach an image (optional)</label>
+                                <div class="email-image-upload" id="emailImageUpload">
+                                    <input type="file" id="emailImageFile" accept="image/jpeg,image/png,image/gif,image/webp" style="display:none">
+                                    <div class="email-image-placeholder" id="emailImagePlaceholder">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                                        <span>Click or drag an image here (max 2MB)</span>
+                                    </div>
+                                    <div class="email-image-preview" id="emailImagePreview" style="display:none">
+                                        <img id="emailImagePreviewImg" src="" alt="Preview">
+                                        <button type="button" class="email-image-remove" id="emailImageRemove" title="Remove image">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="email-actions">
                                 <button class="email-submit" type="submit">Send Email</button>
-                                <p class="email-hint">Uses your default mail client.</p>
+                                <p class="email-hint">Uses your default mail client. Images need to be attached there manually.</p>
                             </div>
                         </form>
                     </section>
@@ -333,14 +379,14 @@ function renderPixelBanner(text) {
         cellSize = 4;
         cols = Math.floor((containerWidth + baseGap) / (cellSize + baseGap));
         cols = Math.max(35, Math.min(cols, 65));
-        rows = 14;
+        rows = 18;
     } else {
         // 桌面端：保持原有 70 列策略
         var baseCols = 70;
         cellSize = Math.floor((containerWidth + baseGap) / baseCols) - baseGap;
         cellSize = Math.max(3, Math.min(cellSize, 6));
         cols = baseCols;
-        rows = 16;
+        rows = 22;
     }
 
     // 最终校验：确保总宽度不超过容器
@@ -351,8 +397,6 @@ function renderPixelBanner(text) {
     }
 
     // 小格子时减少行数保持比例
-    if (cellSize <= 3) rows = 12;
-    else if (cellSize <= 4) rows = Math.min(rows, 14);
 
     // 用离屏 Canvas 生成文字点阵
     const textCanvas = document.createElement('canvas');
@@ -361,21 +405,36 @@ function renderPixelBanner(text) {
     const tctx = textCanvas.getContext('2d');
     tctx.fillStyle = '#000';
     tctx.fillRect(0, 0, cols, rows);
-    tctx.fillStyle = '#fff';
-    var fontSize = rows <= 12 ? 11 : (rows <= 14 ? 12 : 14);
-    var fontWeight = containerWidth < 500 ? '100' : '100';
-    tctx.font = 'italic ' + fontWeight + ' ' + fontSize + 'px "Microsoft YaHei", "PingFang SC", sans-serif';
-    tctx.textAlign = 'center';
-    tctx.textBaseline = 'middle';
-    tctx.letterSpacing = '8px';
-    const spacing = -5;
-    const totalWidth = tctx.measureText(text).width + spacing * (text.length - 1);
-    let x = (cols - totalWidth) / 2;
-    for (const ch of text) {
-        const w = tctx.measureText(ch).width;
-        tctx.fillText(ch, x + w / 2 + 3, rows / 2);
-        x += w + spacing;
+    // Brain + computer icons (Lucide paths, 24x24 units)
+    var brainPaths = [
+        'M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z',
+        'M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z',
+        'M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4',
+        'M17.599 6.5a3 3 0 0 0 .399-1.375', 'M6.003 5.125A3 3 0 0 0 6.401 6.5'
+    ];
+    var monitorPaths = [
+        'M4 3h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z',
+        'M8 21h8', 'M12 17v4', 'M7 8l-2 2 2 2', 'M17 8l2 2-2 2', 'M13 7l-2 6'
+    ];
+    var iconSize = rows - 1;
+    var scale = iconSize / 24;
+    var gapBetween = Math.round(iconSize * 0.9);
+    var totalW = iconSize * 2 + gapBetween;
+    var startX = Math.round((cols - totalW) / 2);
+    var startY = (rows - iconSize) / 2;
+    tctx.strokeStyle = '#fff';
+    tctx.lineCap = 'round';
+    tctx.lineJoin = 'round';
+    tctx.lineWidth = Math.max(1, 2.2 * scale) / scale;
+    function drawIcon(paths, ox) {
+        tctx.save();
+        tctx.translate(ox, startY);
+        tctx.scale(scale, scale);
+        paths.forEach(function (d) { tctx.stroke(new Path2D(d)); });
+        tctx.restore();
     }
+    drawIcon(brainPaths, startX);
+    drawIcon(monitorPaths, startX + iconSize + gapBetween);
     var imageData = tctx.getImageData(0, 0, cols, rows);
 
     // 检测文字实际占用的行范围，垂直居中并保证上下至少 2 行空白
@@ -472,26 +531,148 @@ function renderPixelBanner(text) {
 }
 
 // 默认渲染
-renderPixelBanner('JERRY');
+renderPixelBanner();
 
 // 窗口大小变化时重新渲染像素横幅
 var _pixelResizeTimer;
-var _lastPixelText = 'JERRY';
+
 window.addEventListener('resize', function() {
     clearTimeout(_pixelResizeTimer);
     _pixelResizeTimer = setTimeout(function() {
-        renderPixelBanner(_lastPixelText);
+        renderPixelBanner();
     }, 200);
 });
 </script>
 <script>
 (function () {
-    // Contact form — compose via mailto (static hosting, no backend)
+    // ===== Images: drop files into images/ folders (see images/README.md) =====
+    var IMG_EXTS = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+    function findImage(basePath, cb) {
+        var i = 0;
+        (function tryNext() {
+            if (i >= IMG_EXTS.length) return;
+            var url = basePath + '.' + IMG_EXTS[i++];
+            var probe = new Image();
+            probe.onload = function () { cb(url); };
+            probe.onerror = tryNext;
+            probe.src = url;
+        })();
+    }
+
+    // Avatar (desktop + mobile)
+    findImage('images/avatar/avatar', function (url) {
+        document.querySelectorAll('.avatar, .mobile-avatar').forEach(function (el) {
+            var ph = el.querySelector('.avatar-placeholder');
+            if (ph) ph.style.display = 'none';
+            var img = document.createElement('img');
+            img.className = 'avatar-img';
+            img.src = url;
+            img.alt = 'Jerry Wang';
+            el.appendChild(img);
+        });
+    });
+
+    // Project covers
+    document.querySelectorAll('img[data-img]').forEach(function (img) {
+        findImage(img.getAttribute('data-img'), function (url) { img.src = url; img.hidden = false; });
+    });
+
+    // Site settings from data/content.json (background blur/opacity, gradient, links)
+    var settings = {};
+    fetch('data/content.json').then(function (r) { return r.json(); }).catch(function () { return {}; }).then(function (d) {
+        settings = d || {};
+        var bgBlurEl = document.querySelector('.bg-blur');
+        var blur = settings.bg_blur != null ? settings.bg_blur : 6;
+        var opacity = settings.bg_opacity != null ? settings.bg_opacity : 70;
+        if (bgBlurEl) {
+            bgBlurEl.style.backdropFilter = 'blur(' + blur + 'px)';
+            bgBlurEl.style.webkitBackdropFilter = 'blur(' + blur + 'px)';
+        }
+
+        // Background image (falls back to the animated pattern)
+        findImage('images/background/background', function (url) {
+            var bgEl = document.querySelector('.bg');
+            bgEl.innerHTML = '';
+            bgEl.style.backgroundImage = 'url(' + url + ')';
+            bgEl.style.backgroundSize = 'cover';
+            bgEl.style.backgroundPosition = 'center';
+            if (bgBlurEl) bgBlurEl.style.background = 'rgba(24, 28, 33, ' + (opacity / 100) + ')';
+        });
+
+        // Title gradient
+        if (settings.gradient_colors && settings.gradient_colors.length >= 2) {
+            var css = 'linear-gradient(135deg, ' + settings.gradient_colors.join(', ') + ')';
+            var el = document.querySelector('.title');
+            if (el) {
+                el.style.background = css;
+                el.style.webkitBackgroundClip = 'text';
+                el.style.backgroundClip = 'text';
+                el.style.webkitTextFillColor = 'transparent';
+                el.style.backgroundSize = settings.gradient_animate === false ? '100% 100%' : '200% 200%';
+                el.style.animation = settings.gradient_animate === false ? 'none' : 'gradientText 4s ease infinite';
+            }
+        }
+
+        // Project links
+        var links = settings.project_links || {};
+        document.querySelectorAll('[data-link-key]').forEach(function (a) {
+            var link = links[a.getAttribute('data-link-key')];
+            if (link) { a.href = link; }
+            else { a.removeAttribute('href'); a.removeAttribute('target'); }
+        });
+
+        // WeChat
+        var wc = document.querySelector('[data-field="wechat"]');
+        if (wc && settings.wechat) wc.textContent = 'WeChat: ' + settings.wechat;
+        else if (wc && settings.wechat === '') wc.parentElement.hidden = true;
+    });
+
+    // ===== Contact form — image preview =====
+    var fileInput = document.getElementById('emailImageFile');
+    var upload = document.getElementById('emailImageUpload');
+    var placeholder = document.getElementById('emailImagePlaceholder');
+    var preview = document.getElementById('emailImagePreview');
+    var previewImg = document.getElementById('emailImagePreviewImg');
+    var removeBtn = document.getElementById('emailImageRemove');
+    var hasImage = false;
+
+    placeholder.addEventListener('click', function () { fileInput.click(); });
+    upload.addEventListener('dragover', function (e) { e.preventDefault(); this.classList.add('dragover'); });
+    upload.addEventListener('dragleave', function () { this.classList.remove('dragover'); });
+    upload.addEventListener('drop', function (e) {
+        e.preventDefault();
+        this.classList.remove('dragover');
+        if (e.dataTransfer.files[0]) handleImage(e.dataTransfer.files[0]);
+    });
+    fileInput.addEventListener('change', function () { if (this.files[0]) handleImage(this.files[0]); });
+    function handleImage(file) {
+        if (!/^image\/(jpeg|png|gif|webp)$/.test(file.type)) { alert('Only JPG/PNG/GIF/WebP images are supported.'); return; }
+        if (file.size > 2 * 1024 * 1024) { alert('Image must be under 2MB.'); return; }
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            previewImg.src = e.target.result;
+            preview.style.display = '';
+            placeholder.style.display = 'none';
+            hasImage = true;
+        };
+        reader.readAsDataURL(file);
+    }
+    removeBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        previewImg.src = '';
+        preview.style.display = 'none';
+        placeholder.style.display = '';
+        fileInput.value = '';
+        hasImage = false;
+    });
+
+    // ===== Contact form — compose via mailto (static hosting, no backend) =====
     var form = document.getElementById('emailReplyForm');
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         var name = form.name.value.trim(), from = form.from.value.trim(), msg = form.message.value.trim();
         if (!name || !msg) { alert('Please fill in your name and message.'); return; }
+        if (hasImage) alert('Your mail app will open — please attach the image there before sending.');
         var subject = 'Hello from ' + name;
         var bodyText = msg + '\n\n— ' + name + (from ? ' (' + from + ')' : '');
         window.location.href = 'mailto:cf.wang@berkeley.edu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(bodyText);
@@ -506,7 +687,7 @@ window.addEventListener('resize', function() {
         });
     });
 
-    // Contact icons
+    // Contact icons — scroll to contact section
     document.querySelectorAll('.glass-radio-group input').forEach(function (radio) {
         radio.addEventListener('change', function () {
             var el = document.getElementById('contact');
