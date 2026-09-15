@@ -11,7 +11,7 @@ If a file is missing, the site shows its built-in placeholder instead.
 | `images/projects/` | `asl.jpg` | Cover of the "ASL Recognition" project card | 16:9, ≥ 800×450 |
 | `images/projects/` | `ftc.jpg` | Cover of the "FTC Robotics" project card | 16:9 |
 | `images/projects/` | `parks.jpg` | Cover of the "Reexamining Our Past" project card | 16:9 |
-| `images/projects/` | `placeholder.jpg` | Cover of the "Coming Soon" project card | 16:9 |
+| `images/projects/` | `placeholder.jpg` | Cover of the "？？？" project card | 16:9 |
 
 ## Other settings — `data/content.json`
 
