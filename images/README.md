@@ -17,5 +17,5 @@ If a file is missing, the site shows its built-in placeholder instead.
 
 - `bg_blur` (px) / `bg_opacity` (0–100): how much the background image is blurred and darkened
 - `gradient_colors` / `gradient_animate`: colors of "Jerry Wang" in the title
-- `wechat`: shown under Contact (set to `""` to hide that line)
+- `wechat`: shown under Contact when filled in (empty `""` = hidden)
 - `project_links`: URL for each project card (leave `""` for no link)

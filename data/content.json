@@ -3,7 +3,7 @@
     "bg_opacity": 70,
     "gradient_colors": ["#7dd3fc", "#c084fc", "#f472b6"],
     "gradient_animate": true,
-    "wechat": "your_wechat_id",
+    "wechat": "",
     "project_links": {
         "asl": "",
         "ftc": "",
